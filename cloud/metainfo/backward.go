@@ -64,7 +64,7 @@ func (p *bwCtxValue) set(k, v string) {
 
 func (p *bwCtxValue) setMany(kvs []string) {
 	p.Lock()
-	for i := 0; i < len(kvs); i += 2 {
+	for i := 0; i < len(kvs)-1; i += 2 {
 		p.kvs[kvs[i]] = kvs[i+1]
 	}
 	p.Unlock()
